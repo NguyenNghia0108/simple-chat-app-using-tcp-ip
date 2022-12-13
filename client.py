@@ -72,10 +72,6 @@ class Client:
         self.send_button.config(font=('Calibri', 14))
         self.send_button.grid(column=0, row=5, padx=5, pady=5, sticky='nsew')
 
-        self.file_button = tkinter.Button(self.win, text="Gửi file", command=self.select_file)
-        self.file_button.config(font=('Calibri', 14))
-        self.file_button.grid(column=0, row=6, padx=5, pady=5, sticky='nsew')
-
         self.gui_done = True
 
         self.win.protocol("WM_DELETE_WINDOW", self.stop)
@@ -140,10 +136,6 @@ class Client:
                     self.sock.close()
                     self.stop()
                     break
-    def select_file(self):
-        filename=filedialog.aslopenfilename(initialdir=os.getcwd(),
-                                            title="Select file name",
-                                            filetype=(('file_type,"*.txt'),("all files","*.*")))
 
 if __name__ == '__main__':
     client = Client(HOST, PORT)
